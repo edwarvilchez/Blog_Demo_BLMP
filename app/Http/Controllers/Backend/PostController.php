@@ -28,7 +28,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        //creamos el método para almacenar en BD
+        return view('posts.create');
     }
 
     /**
