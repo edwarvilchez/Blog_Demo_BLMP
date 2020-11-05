@@ -30,27 +30,21 @@
                         <div class="form-group">
                             <label>Comentario</label>
                             <textarea 
-                                class="form-control" 
-                                name="body"  
-                                rows="6"
-                                required
-                            >               
+                                class="form-control" name="body"  
+                                rows="6" required>               
                             </textarea>
                         </div> 
                         <div class="form-group">
                             <label>Comentario Embebido</label>
                             <textarea 
-                                class="form-control" 
-                                name="body"
-                                required  
-                            >               
+                                class="form-control" name="body"
+                                required>               
                             </textarea>
                         </div>
                         <div class="form-group">
                             @csrf
                             <input 
-                                type="submit" 
-                                value="Enviar" 
+                                type="submit" value="Enviar" 
                                 class="btn btn-primary btn-sm">
                         </div>                  
                     </form>
