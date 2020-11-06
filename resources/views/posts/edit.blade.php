@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label>Comentario Embebido</label>
                             <textarea 
-                                class="form-control" name="iframe" required
+                                class="form-control" name="iframe"
                                 value="{{ old('iframe', $post->iframe)}}">               
                             </textarea>
                         </div>

@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Http\Requests\PostRequest;
-// use Illuminate\Http\Request;
+//permite borrar las imagenes almacenadas en el proyecto
+use Illuminate\Support\Facades\Storage; 
 
 class PostController extends Controller
 {
@@ -76,9 +77,24 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        // revisamos como vienen los datos desde el formulario
+        //dd($request->all());
+        // configuramos nuestra función actualizar
+        $post->update($request->all());
+
+        // imagen        
+        if($request->file('file')){
+        // eliminamos la imagen
+            Storage::disk('public')->delete($post->image);
+        //enviamos la imagen a la ubicación configurada
+            $post->image = $request->file('file')->store('posts', 'public');
+            $post->save();
+        }
+
+         // retornamos a la vista
+        return back()->with('status', 'Actualizado Éxitosamente');
     }
 
     /**
@@ -89,6 +105,12 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        // configuramos nuestra función eliminar
+        // eliminamos la imagen
+        Storage::disk('public')->delete($post->image);
+        $post->delete();
+
+        // retornamos a la vista
+        return back()->with('status', 'Eliminado Éxitosamente');
     }
 }
