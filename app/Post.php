@@ -12,6 +12,10 @@ class Post extends Model
 	# usamos el paquete slug
     use Sluggable;
 
+    protected $fillable = [
+        'title', 'body', 'iframe', 'image', 'user_id'
+    ];
+
     /**
      * Return the sluggable configuration array for this model.
      *
