@@ -8,6 +8,12 @@
             @foreach($posts as $post)
             <div class="card mb-4">
                 <div class="card-body">
+        <!---función para motrar los contenidos multimedia--->
+                    @if($post->image)
+                        <img src="{{ $post->get_image }}" class="card-image-top">
+                    @elseif($post->iframe)
+                        {!! $post->iframe !!}
+                    @endif
                     <h5 class="card-title">{{ $post->title }}</h5>
                     <p class="card-text">
                         {{ $post->get_excerpt }}
@@ -18,14 +24,12 @@
                         </em>
                         {{ $post->created_at->format('d M Y') }}
                     </p>
-                    <a href="{{ route('post', $post)}}">Leer +</a>
+                    <a href="{{ route('post', $post) }}">Leer +</a>
                 </div>
             </div>
             @endforeach
-
             <!--paginamos-->
             {{ $posts->links() }}
-
         </div>
     </div>
 </div>

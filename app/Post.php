@@ -31,7 +31,7 @@ class Post extends Model
         ];
     }
 
-     # relacion con la entidad (modelo) User
+    # relacion con la entidad (modelo) User
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -39,5 +39,11 @@ class Post extends Model
     # formateo de los extractos del post
     public function getGetExcerptAttribute(){
         return substr($this->body, 0, 140);
+    }
+
+    # vinculo la vista con la imagen en storage
+    public function getGetImageAttribute(){
+        if($this->image)
+            return url("storage/$this->image");
     }
 }

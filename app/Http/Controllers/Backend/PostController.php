@@ -43,7 +43,7 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
         // revisamos como llegan los datos desde el formulario
-        dd($request->all());
+        // dd($request->all());
         // guardamos o salvamos los datos
         $post = Post::create([
             'user_id'=> auth()->user()->id ] + $request->all());
