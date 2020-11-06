@@ -25,7 +25,7 @@
                         </div>   
                         <div class="form-group">
                             <label>Imagen</label>
-                            <input type="file" name="file" class="form-control">
+                            <input type="file" name="file">
                         </div>
                         <div class="form-group">
                             <label>Comentario</label>
@@ -37,14 +37,14 @@
                         <div class="form-group">
                             <label>Comentario Embebido</label>
                             <textarea 
-                                class="form-control" name="body" required>               
+                                class="form-control" name="iframe" required>               
                             </textarea>
                         </div>
                         <div class="form-group">
                             @csrf
                             <input 
                                 type="submit" value="Enviar" 
-                                class="btn btn-primary btn-sm">
+                                class="btn btn-sm btn-primary">
                         </div>                  
                     </form>
                 </div>
