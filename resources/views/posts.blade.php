@@ -10,9 +10,12 @@
                 <div class="card-body">
         <!---función para motrar los contenidos multimedia--->
                     @if($post->image)
-                        <img src="{{ $post->get_image }}" class="card-image-top">
+                        <img src="{{ $post->get_image }}" 
+                        class="card-image-top mb-4">
                     @elseif($post->iframe)
+                    <div class="embed-responsive embed-responsive-16by9">
                         {!! $post->iframe !!}
+                    </div>                        
                     @endif
                     <h5 class="card-title">{{ $post->title }}</h5>
                     <p class="card-text">

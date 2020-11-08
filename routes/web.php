@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 # ruta home
 Route::get('/','PageController@posts');
 # metodo post
-Route::get('blog/{post}', 'PageController@post')->name('post');
+Route::get('blog/{post:slug}', 'PageController@post')->name('post');
 
 Auth::routes();
 
